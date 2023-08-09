@@ -1,28 +1,32 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Store : MonoBehaviour
 {
-    public List<ClothingItem> availableItems = new List<ClothingItem>();
-    public GameObject productButtonPrefab;
-    public Transform productButtonContainer;
+    [SerializeField] List<ClothingItem> informationItems;
+    [SerializeField] GameObject templateObjectsStore;
+    [SerializeField] TextMeshProUGUI textCoinsTotals;
 
-    void Start()
+    private void Start()
     {
-        UpdateUI();
+        if (!PlayerPrefs.HasKey("Total Coins"))
+        {
+            PlayerPrefs.SetInt("Total Coins", 900);
+        }
+
+        foreach (var item in informationItems)
+        {
+            var templateItem = Instantiate(templateObjectsStore, transform).GetComponent<PlantillaItemStore>();
+            templateItem.image.sprite = item.sprite;
+            templateItem.nameProduct.text = item.titleName; // Usar item.titleName en lugar de titleName
+            templateItem.textPrice.text = item.price.ToString();
+        }
     }
-
-    void UpdateUI()
+    private void Update()
     {
-        foreach (Transform child in productButtonContainer)
-        {
-            Destroy(child.gameObject);
-        }
-
-        foreach (ClothingItem item in availableItems)
-        {
-            GameObject button = Instantiate(productButtonPrefab, productButtonContainer);
-            button.GetComponent<ProductB>().SetupButton(item);
-        }
+        textCoinsTotals.text = PlayerPrefs.GetInt("CoinsTotals").ToString();
     }
 }

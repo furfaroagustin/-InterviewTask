@@ -1,11 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.UI;
 [System.Serializable]
-public class ClothingItem
+[CreateAssetMenu(fileName ="MenuStore",menuName ="InformationItemStore")]
+public class ClothingItem:ScriptableObject
 {
-    public string itemName;
-    public string description;
+    public string titleName;
+   // public string description;
     public int price;
     public Sprite sprite;
-    // Puedes agregar más propiedades según tus necesidades
+   
 }
