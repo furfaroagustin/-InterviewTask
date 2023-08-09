@@ -57,6 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scritps\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scritps\Inventory\ClothingItem.cs" />
+    <Compile Include="Assets\Scritps\Inventory\Store.cs" />
+    <Compile Include="Assets\Scritps\Inventory\Bproduct.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetStore\Nueva carpeta\this is only a demo.txt" />
