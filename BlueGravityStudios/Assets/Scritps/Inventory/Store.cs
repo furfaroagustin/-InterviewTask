@@ -12,21 +12,23 @@ public class Store : MonoBehaviour
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("Total Coins"))
+        if (!PlayerPrefs.HasKey("Coins"))
         {
-            PlayerPrefs.SetInt("Total Coins", 900);
+            PlayerPrefs.SetInt("Coins", 900);
         }
-
+        var  templateItem = templateObjectsStore.GetComponent<PlantillaItemStore>();
         foreach (var item in informationItems)
         {
-            var templateItem = Instantiate(templateObjectsStore, transform).GetComponent<PlantillaItemStore>();
+
             templateItem.image.sprite = item.sprite;
-            templateItem.nameProduct.text = item.titleName; // Usar item.titleName en lugar de titleName
+            templateItem.nameProduct.text = item.titleName;
             templateItem.textPrice.text = item.price.ToString();
+
+            Instantiate(templateItem, transform);
         }
     }
     private void Update()
     {
-        textCoinsTotals.text = PlayerPrefs.GetInt("CoinsTotals").ToString();
+        textCoinsTotals.text = PlayerPrefs.GetInt("Coins:").ToString();
     }
 }

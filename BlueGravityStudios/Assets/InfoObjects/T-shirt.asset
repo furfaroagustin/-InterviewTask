@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd98af6032879440baa66e6dfa7d76a, type: 3}
   m_Name: T-shirt
   m_EditorClassIdentifier: 
-  itemName: T-shirt
+  titleName: T-shirt
   price: 60
   sprite: {fileID: 21300000, guid: 13e02188a2db1ab449a7e2945eae010d, type: 3}

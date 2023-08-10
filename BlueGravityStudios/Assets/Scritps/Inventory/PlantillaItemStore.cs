@@ -10,8 +10,8 @@ public class PlantillaItemStore : MonoBehaviour
     public TextMeshProUGUI textPrice;
     public TextMeshProUGUI nameProduct;
     public Button buttonBuy;
-    public int price;
-    public int coinsTotal;
+    int price;
+    int coinsTotal;
 
     private void Start()
     {
