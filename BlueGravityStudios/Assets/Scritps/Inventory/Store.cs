@@ -10,6 +10,7 @@ public class Store : MonoBehaviour
     [SerializeField] TextMeshProUGUI textCoinsTotals;
 
     // Start is called before the first frame update
+   
     private void Start()
     {
         if (!PlayerPrefs.HasKey("coinsTotal"))
@@ -20,14 +21,16 @@ public class Store : MonoBehaviour
 
         foreach (var item in informationItems)
         {
-            templateItem.image.sprite = item.sprite;
-            templateItem.titleName.text = item.titleName;
-            templateItem.textPrice.text = item.price.ToString();
- 
-            Instantiate(templateItem, transform);
+            var instantiatedItem = Instantiate(templateObjectsStore, transform);
+            var plantillaItemScript = instantiatedItem.GetComponent<PlantillaItemStore>();
+
+            plantillaItemScript.image.sprite = item.sprite;
+            plantillaItemScript.titleName.text = item.titleName;
+            plantillaItemScript.textPrice.text = item.price.ToString();
         }
+
     }
- 
+
     // Update is called once per frame
     void Update()
     {

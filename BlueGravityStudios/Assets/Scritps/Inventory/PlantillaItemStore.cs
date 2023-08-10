@@ -12,6 +12,8 @@ public class PlantillaItemStore : MonoBehaviour
     public Button buttonBuy;
     int precio;
     int monedaTotales;
+    //inventory
+    public InventorySystem inventorySystem;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +26,13 @@ public class PlantillaItemStore : MonoBehaviour
         monedaTotales = PlayerPrefs.GetInt("coinsTotal");
         if (precio > monedaTotales)
         {
-            buttonBuy.interactable = false;
+           // buttonBuy.interactable = false;
         }
     }
-    public void Buy()
+    public void Buy(string itemName)
     {
         monedaTotales -= precio;
         PlayerPrefs.SetInt("coinsTotal", monedaTotales);
+        inventorySystem.AddToInventory(itemName);
     }
 }

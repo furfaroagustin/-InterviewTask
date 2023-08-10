@@ -10,6 +10,8 @@ public class DialogueSystem : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public PlayerController playerController; // Referencia al PlayerController
 
+    public GameObject canvas;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Mercader"))
@@ -47,7 +49,15 @@ public class DialogueSystem : MonoBehaviour
 
     public void BuyButton()
     {
-        SceneManager.LoadScene("Store");
+        //SceneManager.LoadScene("Store");
+        canvas.SetActive(true);
+    }
+    public void ExitCanvas()
+    {
+        //SceneManager.LoadScene("Store");
+        canvas.SetActive(false);
+        dialoguePanel.SetActive(false);
+        playerController.SetCanMove(true); // Reactivar movimiento del jugador
     }
 
     public void SellButton()

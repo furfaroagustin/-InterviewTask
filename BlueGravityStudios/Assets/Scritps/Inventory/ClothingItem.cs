@@ -8,4 +8,6 @@ public class ClothingItem:ScriptableObject
     public string titleName;
     public int price;
     public Sprite sprite;
-   }
+
+    public GameObject itemPrefab;
+}
