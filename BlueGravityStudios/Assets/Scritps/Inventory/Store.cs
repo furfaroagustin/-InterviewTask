@@ -1,34 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-
+using UnityEngine;
+ 
 public class Store : MonoBehaviour
 {
     [SerializeField] List<ClothingItem> informationItems;
     [SerializeField] GameObject templateObjectsStore;
     [SerializeField] TextMeshProUGUI textCoinsTotals;
 
+    // Start is called before the first frame update
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("Coins"))
+        if (!PlayerPrefs.HasKey("coinsTotal"))
         {
-            PlayerPrefs.SetInt("Coins", 900);
+            PlayerPrefs.SetInt("coinsTotal", 900);
         }
-        var  templateItem = templateObjectsStore.GetComponent<PlantillaItemStore>();
+        var templateItem = templateObjectsStore.GetComponent<PlantillaItemStore>();
+
         foreach (var item in informationItems)
         {
-
             templateItem.image.sprite = item.sprite;
-            templateItem.nameProduct.text = item.titleName;
+            templateItem.titleName.text = item.titleName;
             templateItem.textPrice.text = item.price.ToString();
-
+ 
             Instantiate(templateItem, transform);
         }
     }
-    private void Update()
+ 
+    // Update is called once per frame
+    void Update()
     {
-        textCoinsTotals.text = PlayerPrefs.GetInt("Coins:").ToString();
+        textCoinsTotals.text = PlayerPrefs.GetInt("coinsTotal").ToString();
     }
 }

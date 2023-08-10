@@ -8,26 +8,28 @@ public class PlantillaItemStore : MonoBehaviour
 {
     public Image image;
     public TextMeshProUGUI textPrice;
-    public TextMeshProUGUI nameProduct;
+    public TextMeshProUGUI titleName;
     public Button buttonBuy;
-    int price;
-    int coinsTotal;
-
-    private void Start()
+    int precio;
+    int monedaTotales;
+    // Start is called before the first frame update
+    void Start()
     {
-        price = int.Parse(textPrice.text);
+        precio = int.Parse(textPrice.text);
     }
-    private void Update()
+
+    // Update is called once per frame
+    void Update()
     {
-        price = PlayerPrefs.GetInt("CoinsTotal:");
-        if(price>coinsTotal)
+        monedaTotales = PlayerPrefs.GetInt("coinsTotal");
+        if (precio > monedaTotales)
         {
             buttonBuy.interactable = false;
         }
     }
     public void Buy()
     {
-        coinsTotal -= price;
-        PlayerPrefs.SetInt("CoinsTotal", coinsTotal);
+        monedaTotales -= precio;
+        PlayerPrefs.SetInt("coinsTotal", monedaTotales);
     }
 }

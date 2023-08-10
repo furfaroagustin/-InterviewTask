@@ -366,10 +366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2515066883510734203}
   textPrice: {fileID: 7108098791928143642}
-  nameProduct: {fileID: 1422375760586621433}
+  titleName: {fileID: 1422375760586621433}
   buttonBuy: {fileID: 3015988419505760870}
-  price: 1000
-  coinsTotal: 900
 --- !u!1 &1794701501561604977
 GameObject:
   m_ObjectHideFlags: 0
